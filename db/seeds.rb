@@ -10,15 +10,15 @@ require "faker"
 i = 0
 5.times do
   i += 1
-  puts "Creating restaurant #{i}"
+  puts "Creating restaurant and reviews #{i}"
   Restaurant.create(
-    name: Faker::Creature::Dog.name,
+    name: Faker::Restaurant.name,
     address: Faker::Address.street_name,
-    phone_number: ,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
     category: ["chinese", "italian", "japanese", "french", "belgian"].sample
   )
   Review.create(
-    rating: Rand(0..5),
-    content:
+    rating: rand(0..5),
+    content: Faker::Quote.famous_last_words
   )
 end
